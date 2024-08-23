@@ -19,7 +19,7 @@ class FuncionarioController extends Controller
      */
     public function create()
     {
-        //
+        dd("entrou no FuncionarioController - método create");
     }
 
     /**
