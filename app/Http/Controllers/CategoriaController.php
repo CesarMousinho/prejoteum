@@ -38,7 +38,9 @@ class CategoriaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        //dd('ENTRASTES NO LOCAL CERTO ' . $id);
+        $categoria = Categoria::find($id);
+        return view ('categoria.categoria_show', compact ('categoria'));
     }
 
     /**
