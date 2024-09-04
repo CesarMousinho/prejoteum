@@ -22,7 +22,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        //
+       return view('categoria.categoria_create');
     }
 
     /**
