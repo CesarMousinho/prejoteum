@@ -38,3 +38,5 @@ Route::get('/categoria', [CategoriaController::class, 'index'])->name('categoria
 Route::get('/categoria/create', [CategoriaController::class, 'create'])->name('categoria.create');  
 
 Route::get('/categoria/{id}', [CategoriaController::class, 'show'])->name('categoria.show');
+
+Route::post('/categoria', [CategoriaController::class, 'store'])->name('categoria.store');

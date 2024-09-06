@@ -7,6 +7,8 @@
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
+                <p> {{ $categoria->nome }}</p> 
+
                     
             </div>
         </div>

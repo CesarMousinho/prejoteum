@@ -30,7 +30,16 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nome' => 'required|min:5',
+        ]);
+        
+        $categoria = new Categoria();
+        $categoria->nome = $request->nome;
+        $categoria->save();
+
+        //dd($request->all());
+
     }
 
     /**
