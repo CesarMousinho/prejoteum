@@ -31,7 +31,9 @@ class CategoriaController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nome' => 'required|min:5',
+            'nome' => 'required|min:5|alpha:ascii',
+            
+            
         ]);
         
         $categoria = new Categoria();
@@ -40,6 +42,7 @@ class CategoriaController extends Controller
 
         //dd($request->all());
 
+        return redirect()->route('categoria.index')->with('mensagem', 'Categoria cadastrada com sucesso.');
     }
 
     /**
