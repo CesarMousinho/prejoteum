@@ -32,7 +32,7 @@ Route::get('/funcionario', [FuncionarioController::class, 'index']);
 
 Route::get('/create', [FuncionarioController::class, 'create']);
 
-//Categoria
+// --------------------Categoria---------------------------
 Route::get('/categoria', [CategoriaController::class, 'index'])->name('categoria.index');
 
 Route::get('/categoria/create', [CategoriaController::class, 'create'])->name('categoria.create');  
@@ -42,3 +42,7 @@ Route::get('/categoria/{id}/edit' , [CategoriaController::class, 'edit'])->name(
 Route::get('/categoria/{id}', [CategoriaController::class, 'show'])->name('categoria.show');
 
 Route::post('/categoria', [CategoriaController::class, 'store'])->name('categoria.store');
+
+Route::put('/categoria/{id}', [CategoriaController::class, 'update'])->name('categoria.update');
+
+//--------------------Categoria---------------------------\\

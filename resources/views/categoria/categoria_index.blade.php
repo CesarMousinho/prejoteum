@@ -21,19 +21,23 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Nome</th>
-                                <th>Ações</th>
+                                <th class='text-center'>Ações</th>
                             </tr>
 
                             @foreach($categorias as $value)
                             <tr>
                                 <td>{{ $value->id}}</td>
                                 <td>{{ $value->nome}}</td>
-                                <td>
+                                <td class='d-flex justify-content-between'>
                                 <a href="{{ url('/categoria/' .  $value->id) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Visualizar</a>
 
                                 <a href="{{ url('/categoria/' .  $value->id) . '/edit' }}" class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Editar</a>
 
-
+                                <form method=POST action={{ url('/categoria/' . $value->id)}}>
+                                    @method('DELETE')
+                                    @csrf
+                                    <input type='submit'class='btn btn-danger btn-sm active' value='Excluir'>
+                                    </form> 
                                 </td>
                                 
                             </tr>
