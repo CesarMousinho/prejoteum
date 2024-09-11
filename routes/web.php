@@ -46,3 +46,15 @@ Route::post('/categoria', [CategoriaController::class, 'store'])->name('categori
 Route::put('/categoria/{id}', [CategoriaController::class, 'update'])->name('categoria.update');
 
 //--------------------Categoria---------------------------\\
+
+
+
+// --------------------Postagem---------------------------
+Route::get('/postagem', [PostagemController::class, 'index'])->name('postagem.index');
+
+Route::get('/postagem/create', [PostagemController::class , 'create'])->name('postagem.create');
+
+
+//--------------------Postagem---------------------------\\
+
+//PAREI NO MINUTO 13:30 DE CRIAÇÃO DA POSTAGEM.
