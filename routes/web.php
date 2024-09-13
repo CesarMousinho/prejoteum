@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FuncionarioController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\PostagemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,7 +55,14 @@ Route::get('/postagem', [PostagemController::class, 'index'])->name('postagem.in
 
 Route::get('/postagem/create', [PostagemController::class , 'create'])->name('postagem.create');
 
+Route::post('/postagem', [PostagemController::class], 'store')->name('postagem.store');
+
+Route::get ('/postagem/{id/}', [PostagemController::class],'show')->name('postage.show');
+
+Route::get ('/postagem/{id/}edit', [PostagemController::class],'edit')->name('postage.edit');
+
+Route::put ('/postagem/{id/}', [PostagemController::class],'uptade')->name('postage.uptade');
 
 //--------------------Postagem---------------------------\\
 
-//PAREI NO MINUTO 13:30 DE CRIAÇÃO DA POSTAGEM.
+
