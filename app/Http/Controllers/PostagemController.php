@@ -22,7 +22,8 @@ class PostagemController extends Controller
      */
     public function create()
     {
-       return view('postagem.postagem_create');
+        $postagens = Categoria::orderBy('nome', 'ASC')->get();
+       return view('postagem.postagem_create') compact('postagens');
     }
 
     /**
@@ -30,10 +31,9 @@ class PostagemController extends Controller
      */
     public function store(Request $request)
     {
+
         $validated = $request->validate([
             'titulo' => 'required|min:5|alpha:ascii',
-            
-            
         ]);
         
         $postagem = new Postagem();

@@ -17,12 +17,23 @@
                 </div>
             @endif
 
-                <form method = 'POST' action="{{ url('/postagem') }}" method="get">
+                <form method='POST' action="{{ url('/postagem') }}">
                     @csrf
 
                     <div class="form-group">
-                        <label for="exampleInputEmail1">titulo</label>
-                        <input type="text" name="titulo" class="form-control" placeholder="Digite o titulo da Postagem">     
+
+                        <label for='categorias'>Escolha uma categoria:</label>
+
+                            <select name="cars" id="cars">
+
+                            <!-- PAREI NO VIDEO 36:59 DO CRUD POSTAGEM INDEX -->
+
+                        <label for="exampleInputEmail1">Titulo</label>
+                        <input type="text" name="titulo" class="form-control" placeholder="Digite o titulo da Postagem">
+
+                        <label for="exampleInputEmail1">Conteudo</label>
+                        <textarea type="long-text" name="conteudo" class="form-control" placeholder="Digite o conteúdo da Postagem">
+                        </textarea>  
                     </div>
                         <input type="submit" value="ENVIAR">
                 </form>

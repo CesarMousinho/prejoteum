@@ -24,10 +24,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 //Funcionario
 Route::get('/funcionario', [FuncionarioController::class, 'index']);
 
@@ -55,13 +51,13 @@ Route::get('/postagem', [PostagemController::class, 'index'])->name('postagem.in
 
 Route::get('/postagem/create', [PostagemController::class , 'create'])->name('postagem.create');
 
-Route::post('/postagem', [PostagemController::class], 'store')->name('postagem.store');
+Route::post('/postagem', [PostagemController::class, 'store'])->name('postagem.store');
 
-Route::get ('/postagem/{id/}', [PostagemController::class],'show')->name('postage.show');
+Route::get ('/postagem/{id/}', [PostagemController::class],'show')->name('postagem.show');
 
-Route::get ('/postagem/{id/}edit', [PostagemController::class],'edit')->name('postage.edit');
+Route::get ('/postagem/{id/}edit', [PostagemController::class],'edit')->name('postagem.edit');
 
-Route::put ('/postagem/{id/}', [PostagemController::class],'uptade')->name('postage.uptade');
+Route::put ('/postagem/{id/}', [PostagemController::class],'update')->name('postage.update');
 
 //--------------------Postagem---------------------------\\
 

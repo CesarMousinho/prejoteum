@@ -22,8 +22,12 @@
                     @csrf
 
                     <div class="form-group">
-                        <label for="exampleInputEmail1">titulo</label>
-                        <input type="text" name="titulo" value="{{ $postagem->titulo }}" class="form-control" placeholder="Digite o titulo da Postagem">     
+                        <label for="exampleInputEmail1">Titulo</label>
+                        <input type="text" name="titulo" value="{{ $postagem->titulo }}" class="form-control" placeholder="Digite o titulo da Postagem">
+
+                        <label for="exampleInputEmail1">Conteúdo</label>
+                        <textarea type="long-text" name="conteudo" value="{{ $postagem->titulo }}" class="form-control" placeholder="Digite o titulo da Postagem">
+                        </textarea>   
                     </div>
                         <input type="submit" value="ENVIAR">
                 </form>
