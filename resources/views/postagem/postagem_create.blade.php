@@ -22,11 +22,16 @@
 
                     <div class="form-group">
 
-                        <label for='categorias'>Escolha uma categoria:</label>
+                        <label for='categorias'>Escolha uma categoria:</label><br>
 
-                            <select name="cars" id="cars">
+                            <select name="categoria_id" class="forms-control" id="categoria_id">
+                                @foreach ($categorias as $value)
+                                    <option value="{{ $value->id }}"> {{ $value->nome }}</option>
+                                @endforeach
 
-                            <!-- PAREI NO VIDEO 36:59 DO CRUD POSTAGEM INDEX -->
+    
+
+                            <!-- PAREI NO VIDEO 36:59 DO CRUD POSTAGEM INDEX -->  
 
                         <label for="exampleInputEmail1">Titulo</label>
                         <input type="text" name="titulo" class="form-control" placeholder="Digite o titulo da Postagem">

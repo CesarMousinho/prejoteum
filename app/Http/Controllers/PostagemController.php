@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Postagem;
+use App\Models\Categoria;
 
 class PostagemController extends Controller
 {
@@ -22,8 +23,9 @@ class PostagemController extends Controller
      */
     public function create()
     {
-        $postagens = Categoria::orderBy('nome', 'ASC')->get();
-       return view('postagem.postagem_create') compact('postagens');
+        $postagens = Postagem::orderBy('titulo', 'ASC')->get();
+        $categorias = Categoria::get();
+       return view('postagem.postagem_create',  compact('postagens', 'categorias'));
     }
 
     /**
@@ -38,7 +40,11 @@ class PostagemController extends Controller
         
         $postagem = new Postagem();
         $postagem->titulo = $request->titulo;
+        $postagem->categoria_id = $request->categoria_id;
         $postagem->save();
+
+        // FALTA PEGAR O USUARIO LOGADO E SALVAR NO BANCO!!! PAREI NO VIDEO 41:03 DO CRUD DE POSTAGEM
+        
 
         //dd($request->all());
 
@@ -61,6 +67,7 @@ class PostagemController extends Controller
     public function edit(string $id)
     {
         $postagem= Postagem::find($id);
+     
         return view ('postagem.postagem_edit',compact('postagem'));
     }
 
@@ -91,5 +98,4 @@ class PostagemController extends Controller
     }
 }
 
-//PAREI NO VIDEO 23:08 DO CRUD DE POSTAGEM
 
