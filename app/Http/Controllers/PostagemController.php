@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Postagem;
 use App\Models\Categoria;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class PostagemController extends Controller
 {
@@ -35,15 +38,19 @@ class PostagemController extends Controller
     {
 
         $validated = $request->validate([
+            'categoria_id' => 'required',
             'titulo' => 'required|min:5|alpha:ascii',
+            'conteudo' => 'required|min:5',
         ]);
         
         $postagem = new Postagem();
         $postagem->titulo = $request->titulo;
+        $postagem->user_id = Auth::id();
         $postagem->categoria_id = $request->categoria_id;
+        $postagem->conteudo = $request->conteudo;
         $postagem->save();
 
-        // FALTA PEGAR O USUARIO LOGADO E SALVAR NO BANCO!!! PAREI NO VIDEO 41:03 DO CRUD DE POSTAGEM
+    
         
 
         //dd($request->all());
@@ -66,9 +73,11 @@ class PostagemController extends Controller
      */
     public function edit(string $id)
     {
+        $categorias = Categoria::orderBy('nome', 'ASC')->get();
+
         $postagem= Postagem::find($id);
      
-        return view ('postagem.postagem_edit',compact('postagem'));
+        return view ('postagem.postagem_edit',compact('postagem', 'categorias'));
     }
 
     /**
@@ -77,12 +86,17 @@ class PostagemController extends Controller
     public function update(Request $request, string $id)
     {
         $validated = $request->validate([
-            'titulo' => 'required|min:5|alpha:ascii',
+            'categoria_id' => 'required',
+            'titulo' => 'required|min:5',
+            'conteudo' => 'required|min:5',
 
         ]);
 
         $postagem = Postagem::find($id);
         $postagem->titulo = $request->titulo;
+        $postagem->user_id = Auth::id();
+        $postagem->categoria_id = $request->categoria_id;
+        $postagem->conteudo = $request->conteudo;
         $postagem->save();
 
         return redirect()->route('postagem.index')->with('mensagem', 'Postagem alterada com sucesso.');
@@ -94,7 +108,10 @@ class PostagemController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $postagem = Postagem::find($id);
+        $postagem->delete();
+
+        return redirect()->route('postagem.index')->with('mensagem', 'Postagem excluida com sucesso.');
     }
 }
 

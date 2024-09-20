@@ -49,15 +49,17 @@ Route::put('/categoria/{id}', [CategoriaController::class, 'update'])->name('cat
 // --------------------Postagem---------------------------
 Route::get('/postagem', [PostagemController::class, 'index'])->name('postagem.index');
 
-Route::get('/postagem/create', [PostagemController::class , 'create'])->name('postagem.create');
+Route::get('/postagem/create', [PostagemController::class, 'create'])->name('postagem.create');
 
 Route::post('/postagem', [PostagemController::class, 'store'])->name('postagem.store');
 
-Route::get ('/postagem/{id/}', [PostagemController::class],'show')->name('postagem.show');
+Route::get ('/postagem/{id}', [PostagemController::class, 'show'])->name('postagem.show');
 
-Route::get ('/postagem/{id/}edit', [PostagemController::class],'edit')->name('postagem.edit');
+Route::get ('/postagem/{id}/edit', [PostagemController::class, 'edit'])->name('postagem.edit');
 
-Route::put ('/postagem/{id/}', [PostagemController::class],'update')->name('postage.update');
+Route::put ('/postagem/{id}', [PostagemController::class, 'update'])->name('postagem.update');
+
+Route::delete('/postagem/{id}',[PostagemController::class, 'destroy'])->name('postagem.destroy');
 
 //--------------------Postagem---------------------------\\
 

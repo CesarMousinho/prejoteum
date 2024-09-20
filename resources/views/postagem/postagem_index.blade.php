@@ -26,6 +26,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>titulo</th>
+                                <th>Categoria</th>
                                 <th class='text-center'>Ações</th>
                             </tr>
 
@@ -33,6 +34,7 @@
                             <tr>
                                 <td>{{ $value->id}}</td>
                                 <td>{{ $value->titulo}}</td>
+                                <td>{{ $value->categoria->nome}}</td>
                                 <td class='d-flex justify-content-around'>
                                 <a href="{{ url('/postagem/' .  $value->id) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Visualizar</a>
 
