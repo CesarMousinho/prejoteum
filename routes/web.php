@@ -22,6 +22,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::middleware(['auth'])->group(function () {
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Funcionario
@@ -41,6 +43,8 @@ Route::get('/categoria/{id}', [CategoriaController::class, 'show'])->name('categ
 Route::post('/categoria', [CategoriaController::class, 'store'])->name('categoria.store');
 
 Route::put('/categoria/{id}', [CategoriaController::class, 'update'])->name('categoria.update');
+
+Route::delete('/postagem/{id}',[PostagemController::class, 'destroy'])->name('postagem.destroy');   
 
 //--------------------Categoria---------------------------\\
 
@@ -64,3 +68,5 @@ Route::delete('/postagem/{id}',[PostagemController::class, 'destroy'])->name('po
 //--------------------Postagem---------------------------\\
 
 
+
+});
