@@ -30,4 +30,3 @@ class CategoriaSeeder extends Seeder
         }
     }
 }
-//PARAMOS NA CRIAÇÃO DO MODELO NO MINUTO 19 DO VIDEO CRUD

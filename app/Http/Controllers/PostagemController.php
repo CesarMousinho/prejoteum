@@ -93,9 +93,9 @@ class PostagemController extends Controller
         ]);
 
         $postagem = Postagem::find($id);
-        $postagem->titulo = $request->titulo;
-        $postagem->user_id = Auth::id();
         $postagem->categoria_id = $request->categoria_id;
+        $postagem->user_id = Auth::id();
+        $postagem->titulo = $request->titulo;
         $postagem->conteudo = $request->conteudo;
         $postagem->save();
 

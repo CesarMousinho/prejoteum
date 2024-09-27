@@ -1,5 +1,11 @@
 @extends('adminlte::page')
 
+<!-- -------- ABERTURA DO EDITOR RICO ----------- -->
+
+<link rel="stylesheet" href="{{url('/richtexteditor/rte_theme_default.css')}}" />
+<script type="text/javascript" src="{{url('/richtexteditor/rte.js')}"></script>
+<script type="text/javascript" src="{{url('/richtexteditor/plugins/all_plugins.js') }}"></script>
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -37,12 +43,19 @@
                         <input type="text" name="titulo" class="form-control" placeholder="Digite o titulo da Postagem">
 
                         <label for="exampleInputEmail1">Conteudo</label>
-                        <textarea type="long-text" name="conteudo" class="form-control" placeholder="Digite o conteúdo da Postagem">
+                        <textarea type="long-text" id="inp_editor1" name="conteudo" class="form-control" placeholder="Digite o conteúdo da Postagem">
                         </textarea>  
                     </div>
                         <input type="submit" value="ENVIAR">
                 </form>
 
+
+
+                <!-- -------- FECHAMENTO DO EDITOR RICO------- -->
+                     
+                <script>
+                        var editor1 = new RichTextEditor("#inp_editor1");
+                    </script>
                    
             </div>
         </div>
