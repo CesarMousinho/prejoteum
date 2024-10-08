@@ -17,7 +17,7 @@
                 </div>
             @endif
 
-                <form method = 'POST' action={{ URL('/categoria/'. $categoria->id )}}>
+                <form method = 'POST' action={{ URL('/categoria'. $categoria->id )}}>
                     @method('PUT')
                     @csrf
 

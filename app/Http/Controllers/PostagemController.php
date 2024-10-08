@@ -73,7 +73,7 @@ class PostagemController extends Controller
      */
     public function edit(string $id)
     {
-        $categorias = Categoria::orderBy('nome', 'ASC')->get();
+        $categorias = Categoria::orderBy('nome', 'ASC')->get(); 
 
         $postagem= Postagem::find($id);
      

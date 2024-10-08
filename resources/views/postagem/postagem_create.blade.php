@@ -2,8 +2,8 @@
 
 <!-- -------- ABERTURA DO EDITOR RICO ----------- -->
 
-<link rel="stylesheet" href="{{url('/richtexteditor/rte_theme_default.css')}}" />
-<script type="text/javascript" src="{{url('/richtexteditor/rte.js')}"></script>
+<link rel="stylesheet" href="{{url('/richtexteditor/rte_theme_default.css')}}"/>
+<script type="text/javascript" src="{{url('/richtexteditor/rte.js')}}"></script>
 <script type="text/javascript" src="{{url('/richtexteditor/plugins/all_plugins.js') }}"></script>
 
 @section('content')

@@ -22,11 +22,11 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-       return view('categoria.categoria_create');
+       return view('categoria.categoria_create')->with('mensagem', 'Categoria Criada com sucesso.');
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in storage.   
      */
     public function store(Request $request)
     {
@@ -42,7 +42,7 @@ class CategoriaController extends Controller
 
         //dd($request->all());
 
-        return redirect()->route('categoria.index')->with('mensagem', 'Categoria cadastrada com sucesso.');
+        return redirect()->route('categoria.categoria_store')->with('mensagem', 'Categoria cadastrada com sucesso.');
     }
 
     /**
@@ -87,6 +87,9 @@ class CategoriaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $categoria = Categoria::find($id);
+        $categoria->delete();
+
+        return redirect()->route('categoria.index')->with('mensagem', 'Categoria excluida com sucesso!');
     }
 }

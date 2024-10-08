@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FuncionarioController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\PostagemController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +45,7 @@ Route::post('/categoria', [CategoriaController::class, 'store'])->name('categori
 
 Route::put('/categoria/{id}', [CategoriaController::class, 'update'])->name('categoria.update');
 
-Route::delete('/postagem/{id}',[PostagemController::class, 'destroy'])->name('postagem.destroy');   
+Route::delete('/categoria/{id}',[CategoriaController::class, 'destroy'])->name('categoria.destroy');   
 
 //--------------------Categoria---------------------------\\
 
